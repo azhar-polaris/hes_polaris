@@ -28,7 +28,7 @@ const ScheduledReads = () => {
               setView(view === 'graph' ? 'table' : 'graph');
             }}
           >
-            {view === 'table' && <div className="w-6 h-6 text-[#0A3690]"> <GraphView/> </div>}
+            {view === 'table' && <div className="w-6 h-6 text-[#0A3690]"> <GraphView/></div>}
             {view === 'graph' && <div className="w-6 h-6 text-[#0A3690]"><ListView/> </div>}
           </div>
         </div>

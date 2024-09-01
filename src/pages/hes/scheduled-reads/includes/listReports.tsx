@@ -46,7 +46,7 @@ const ListReports: FC<TableProps> = ({  search }) => {
 
     return (
         <div className="flex-1 flex flex-col w-full px-2">
-          <div className="flex flex-1 min-h-[40vh] items-center justify-center">
+          <div className="flex flex-1 min-h-[50vh] items-center justify-center">
             {!isFetching ? (
               <DataTable
                 refresh
