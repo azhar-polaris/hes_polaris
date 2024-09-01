@@ -1,6 +1,6 @@
 import React from 'react';
 import GraphComponent from './graphReports';
-import { useGetScheduledReportsQuery } from '../../../store/hes/hesApi'; // Adjust path accord
+import { useGetScheduledReportsQuery } from '../../../store/hes/hesApi'; 
 
 const ScheduledReads = () => {
   const { data } = useGetScheduledReportsQuery({ searchQuery: '?some-query' });

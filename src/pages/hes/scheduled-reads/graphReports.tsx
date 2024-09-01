@@ -2,23 +2,22 @@
 import React from 'react';
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
-import { ChartData } from '../../../store/hes/types/records/scheduleReports'; // Make sure this path is correct
-
+import { cn } from "@/lib/utils";
+import { ChartData } from '../../../store/hes/types/records/scheduleReports'; 
 type GraphComponentProps = {
     chartData: ChartData;
   };
   
   const GraphComponent: React.FC<GraphComponentProps> = ({ chartData }) => {
-    // Function to generate chart configurations for each command
     const getChartOptions = (commandName: string): ApexOptions => {
       return {
         chart: {
           type: 'pie',
         },
         labels: chartData[commandName]?.labels || [],
-        colors: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40'],
+        colors: ['#0A3690', '#FF5A5A', '#FFC32E', '#00C4B4', '#9966FF', '#FF9F40'],
         legend: {
-          position: 'right', // Ensure this is one of the allowed values: 'right', 'top', 'bottom', 'left'
+          position: 'right', 
           labels: {
             colors: ['#333'],
             useSeriesColors: false,
@@ -34,23 +33,24 @@ type GraphComponentProps = {
       };
     };
   
-    // Rendering each chart based on chartData
     const renderCharts = () => {
       return Object.keys(chartData).map((commandName) => (
-        <div key={commandName} className="chart-container" style={{ width: '300px', margin: '20px' }}>
+        <div key={commandName} className={cn(`flex flex-1 gap-12 pt-10 flex-wrap`, "justify-center" )}style={{ width: '300px', margin: '20px' }}>
           <h4>{commandName}</h4>
+          <div className="w-[40vw] lg:w-[20vw] flex h-full special-div">
           <Chart
             options={getChartOptions(commandName)}
             series={chartData[commandName]?.series || []}
             type="pie"
             width="280"
           />
+          </div>
         </div>
       ));
     };
   
     return (
-      <div className="chart-wrapper" style={{ display: 'flex', flexWrap: 'wrap' }}>
+        <div className="flex gap-x-6">
         {renderCharts()}
       </div>
     );
