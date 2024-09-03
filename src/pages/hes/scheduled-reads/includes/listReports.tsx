@@ -2,12 +2,9 @@ import { FC, useCallback, useEffect, useState } from "react";
 import DataTable from "@/components/customUI/DataTable";
 import Spinner from "@/components/customUI/Loaders/Spinner";
 import useGetTableColumns from "@/hooks/useGetTableColumns";
-import CaretLeft from "@/components/svg/CaretLeft";
-import CaretRight from "@/components/svg/CaretRight";
-import  Button  from "@/components/ui/button";
 import BoxContainer from "@/components/customUI/BoxContainer";
 import { useGetScheduledReportsQuery } from "@/store/hes/hesApi";
-import { CommandRecord } from "@/store/hes/types/records/reports";
+import { FlattenedCommandRecord } from "@/store/hes/types/records/reports";
 
 interface TableProps {
     search: string,
@@ -25,11 +22,12 @@ const ListReports: FC<TableProps> = ({  search }) => {
         setQuery(search);
     }, [search]);
 
-    const tableData: CommandRecord[] = response?.originalData?.records || [];
+    const tableData: FlattenedCommandRecord[] = response?.transformedRecords || [];
 
     const columns = useGetTableColumns({
         cols: tableData,
-        query: ["statusBreakup"],
+        query: [],
+        
       });
 
     if (isLoading) return (
