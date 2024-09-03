@@ -12,7 +12,7 @@ const GraphComponent: React.FC<GraphComponentProps> = ({ chartData }) => {
     return Object.keys(chartData).map((commandName) => {
       const data = chartData[commandName];
       const graphData = {
-        series: data.series, 
+        series: data.series,
         options: {
           chart: {
             type: 'pie',
@@ -38,7 +38,7 @@ const GraphComponent: React.FC<GraphComponentProps> = ({ chartData }) => {
 
       return (
         <div key={commandName} className="flex-1 bg-white shadow-md rounded-lg p-8 m-4">
-          <BarGraph data={graphData} title={commandName} type="pie" /> 
+          <BarGraph data={graphData} title={commandName} type="pie" />
         </div>
       );
     });
