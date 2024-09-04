@@ -9,7 +9,6 @@ import FullScreen from "@/components/customUI/Loaders/FullScreen";
 import MainOutlet from "./MainOutlet";
 
 const Dashboard = lazy(() => import("@/pages/hes/dashboard"));
-const LiveData = lazy(() => import("@/pages/hes/live-data"));
 const BlockLoad = lazy(() => import("@/pages/hes/live-data/block-load"));
 const DailyLoad = lazy(() => import("@/pages/hes/live-data/daily-load"));
 const MonthlyBilling = lazy(() => import("@/pages/hes/live-data/monthly-billing"));
@@ -30,7 +29,6 @@ function Navigation() {
             <Route index element={<Dashboard />} />
 
             <Route path="live-data" element={<Outlet />}>
-              <Route index element={<LiveData />} />
               <Route path="block-load" element={<BlockLoad />} />
               <Route path="daily-load" element={<DailyLoad />} />
               <Route path="monthly-billing" element={<MonthlyBilling />} />
