@@ -13,7 +13,7 @@ interface TableProps {
 const ListReports: FC<TableProps> = ({ search }) => {
   const [query, setQuery] = useState(search);
 
-  const { data: response, isLoading, isFetching, isError, refetch: refresh } = useGetScheduledReportsQuery({
+  const { data: response, isLoading, isFetching, isError } = useGetScheduledReportsQuery({
     searchQuery: `?${query}`
   });
 
@@ -47,8 +47,6 @@ const ListReports: FC<TableProps> = ({ search }) => {
       <div className="flex flex-1 min-h-[50vh] items-center justify-center">
         {!isFetching ? (
           <DataTable
-            refresh
-            refreshFn={refresh}
             columns={columns}
             data={tableData}
           />

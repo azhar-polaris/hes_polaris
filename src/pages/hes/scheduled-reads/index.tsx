@@ -59,17 +59,17 @@ const ScheduledReads = () => {
               <div className='flex items-center gap-x-6 m-2'>
 
                 {view === 'graph' ? (
-                   <Button
-                   variant="ghost"
-                   className="secondary-vee-btn hover:bg-[none] hover:text-[none] flex gap-x-2 items-center"
-                   onClick={() => setView("table")}
-                 >
-                   <ListView />
-                   <span>List View</span>
-                 </Button>
-                
+                  <Button
+                    variant="ghost"
+                    className="secondary-vee-btn hover:bg-[none] hover:text-[none] flex gap-x-2 items-center"
+                    onClick={() => setView("table")}
+                  >
+                    <ListView />
+                    <span>List View</span>
+                  </Button>
+
                 ) : (
-                    <Button
+                  <Button
                     variant="ghost"
                     className="primary-vee-btn hover:bg-[none] hover:text-[none] flex gap-x-2 items-center"
                     onClick={() => setView("graph")}
